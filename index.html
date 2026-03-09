@@ -1,81 +1,89 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiApp | Buscador Profesional</title>
-    
     <style>
-        /* Estilos Globales: Fondo limpio y centrado perfecto */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            height: 100vh; 
-            margin: 0; 
-            background-color: #ffffff; 
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            font-size: 80px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .blue { color: #4285f4; }
+        .red { color: #ea4335; }
+        .yellow { color: #fbbc05; }
+        .green { color: #34a853; }
+
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            border: 1px solid #dfe1e5;
+            border-radius: 28px;
+            width: 100%;
+            max-width: 584px;
+            padding: 5px 15px;
+            margin: 0 auto;
+            transition: box-shadow 0.2s;
+        }
+
+        .search-wrapper:hover, .search-wrapper:focus-within {
+            box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+            border-color: rgba(223,225,229,0);
+        }
+
+        input {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 40px;
+            font-size: 16px;
+            color: #202124;
+            padding-left: 10px;
+        }
+
+        .button-group {
+            margin-top: 25px;
+        }
+
+        button {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-size: 14px;
+            margin: 11px 4px;
+            padding: 0 16px;
+            line-height: 27px;
+            height: 36px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+            border: 1px solid #dadce0;
             color: #202124;
         }
 
-        /* Logo con Tipografía Moderna y Sombras Suaves */
-        h1 { 
-            font-size: 80px; 
-            margin-bottom: 30px; 
-            font-weight: 700; 
-            letter-spacing: -2px; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        footer {
+            position: absolute;
+            bottom: 15px;
+            color: #70757a;
+            font-size: 14px;
         }
-        .blue { color: #4285F4; } .red { color: #EA4335; } .yellow { color: #FBBC05; } .green { color: #34A853; }
-
-        /* Contenedor de Búsqueda: Diseño "Píldora" con efecto Hover */
-        .search-wrapper { 
-           display: flex;
-    align-items: center;
-    border: 1px solid #dfe1e5;
-    border-radius: 28px;
-    width: 100%;
-    max-width: 584px; 
-    padding: 5px 15px; 
-    margin: 0 auto;}
-        .search-wrapper:hover, .search-wrapper:focus-within { 
-            box-shadow: 0 1px 6px rgba(32,33,36,0.28); 
-            border-color: rgba(223,225,229,0); 
-        
-
-        input { 
-            border: none; 
-            outline: none; 
-            width: 100%; 
-            height: 40px; 
-            font-size: 16px; 
-            color: #202124;
-        }
-
-        /* Botones Profesionales: Estilo minimalista */
-        .button-group { margin-top: 35px; }
-        button { 
-            background-color: #f8f9fa; 
-            border: 1px solid #f8f9fa; 
-            border-radius: 6px; 
-            color: #3c4043; 
-            font-size: 14px; 
-            margin: 6px; 
-            padding: 12px 24px; 
-            cursor: pointer; 
-            transition: all 0.1s;
-            font-weight: 500;
-        }
-        button:hover { 
-            border: 1px solid #dadce0; 
-            color: #202124; 
-            background-color: #f1f3f4;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
-        }
-
-        /* Pie de página profesional */
-        footer { position: absolute; bottom: 20px; font-size: 13px; color: #70757a; }
     </style>
 </head>
 <body>
@@ -84,19 +92,20 @@
         <span class="blue">M</span><span class="red">i</span><span class="yellow">A</span><span class="blue">p</span><span class="green">p</span>
     </h1>
 
-   <form action="https://www.google.com/search" method="GET" target="_blank" style="display: flex; flex-direction: column; align-items: center; width: 90%;">
+    <form action="https://google.com" method="GET" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
         <div class="search-wrapper">
-            <input type="text" name="q" placeholder="Escribe para buscar en la web..." autocomplete="off">
+            <input type="text" name="q" placeholder="Escribe para buscar en la web..." required>
         </div>
+
         <div class="button-group">
             <button type="submit">Buscar con MiApp</button>
-            <button type="button" onclick="window.location.href='servicios.html'">Servicios Profesionales</button>
-
-
+            <button type="button">Servicios Profesionales</button>
         </div>
     </form>
 
-    <footer>&copy; 2026 MiApp Corporation | Desarrollado por un Experto</footer>
+    <footer>
+        © 2026 MiApp Corporation | Desarrollado por un Experto
+    </footer>
 
 </body>
 </html>
