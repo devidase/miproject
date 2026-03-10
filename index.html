@@ -109,18 +109,40 @@
     </footer>
 
 <script>
-function moverReloj() {
+  // 1. Reloj: Mantiene la hora actualizada
+  function moverReloj() {
     const ahora = new Date();
-    const tiempo = ahora.toLocaleString();
-    document.getElementById("reloj").innerText = tiempo;
-}
+    const elReloj = document.getElementById("reloj");
+    if(elReloj) elReloj.innerText = ahora.toLocaleString();
+  }
+  setInterval(moverReloj, 1000);
+  moverReloj();
 
-moverReloj();
-setInterval(moverReloj, 1000);
+  // 2. Formulario: Envía los datos sin saltar a Formspree
+  const formulario = document.querySelector("form");
+  
+  formulario.onsubmit = async (e) => {
+    e.preventDefault(); // Bloquea el redireccionamiento
+    
+    const datos = new FormData(formulario);
+    const respuesta = await fetch(formulario.action, {
+      method: 'POST',
+      body: datos,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (respuesta.ok) {
+      alert("¡Enviado con éxito a MiApp! ✅");
+      formulario.reset();
+    } else {
+      alert("Hubo un error al enviar. ❌");
+    }
+  };
 </script>
  
 </body>
 </html>
+
 
 
 
