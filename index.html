@@ -29,32 +29,31 @@
         .green { color: #34a853; }
 
         .search-wrapper {
-            display: flex;
-            align-items: center;
-            border: 1px solid #dfe1e5;
-            border-radius: 28px;
-            width: 100%;
-            max-width: 584px;
-            padding: 5px 15px;
-            margin: 0 auto;
-            transition: box-shadow 0.2s;
-        }
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 15px;              
+    border: none;           
+    width: 100%;
+    max-width: 584px;
+    margin: 20px auto;     
+}
 
         .search-wrapper:hover, .search-wrapper:focus-within {
             box-shadow: 0 1px 6px rgba(32,33,36,0.28);
             border-color: rgba(223,225,229,0);
         }
 
-        input {
-            border: none;
-            outline: none;
-            width: 100%;
-            height: 40px;
-            font-size: 16px;
-            color: #202124;
-            padding-left: 10px;
-        }
-
+       input {
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;       
+    outline: none;
+    width: 100%;              
+    height: 45px;
+    font-size: 16px;
+    padding: 0 20px;           
+    margin-bottom: 10px;      
+}
         .button-group {
             margin-top: 25px;
         }
@@ -88,15 +87,13 @@
 </head>
 <body>
 
-    <h1>
-        <span class="blue">M</span><span class="red">i</span><span class="yellow">A</span><span class="blue">p</span><span class="green">p</span>
-    </h1>
-
-    <form action="https://formspree.io/f/mjgagjee style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+ <div id="reloj" style="font-size: 20px; color: #444;">Cargando hora...</div>
+<div style="font-size: 16px; color: #666;">☁️ Zaragoza: 10°C (Nublado)</div>
+<h1><span class="blue">M</span><span class="red">i</span>App</h1>
+    <form action="https://formspree.io/f/mjgagjee" method="POST"> style="width: 100%; display: flex; flex-direction: column; align-items: center;">
         <div class="search-wrapper">      
-<input type="email" name="email">
-            
-            <input type="text" placename="message"holder="Escribe para buscar en la web..." required>
+<input type="email" name="email" placeholder="Tu correo">
+            <input type="text" name="message" placeholder="Escribe para buscar en la web..." required">
         </div>
 
         <div class="button-group">
@@ -109,6 +106,15 @@
         © 2026 MiApp Corporation | Desarrollado por un Experto
     </footer>
 
+ <script>
+  function moverReloj() {
+    const ahora = new Date();
+    const tiempo = ahora.toLocaleTimeString(); 
+    document.getElementById('reloj').innerText = tiempo;
+  }
+  setInterval(moverReloj, 1000);
+  moverReloj();
 </body>
 </html>
+
 
