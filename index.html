@@ -109,18 +109,19 @@
     </footer>
 
 <script>
-  function moverReloj() {
+function moverReloj() {
     const ahora = new Date();
-    const tiempo = ahora.toLocaleTimeString(); 
-    document.getElementById('reloj').innerText = tiempo;
-  }
-  setInterval(moverReloj, 1000);
-  moverReloj();
+    const tiempo = ahora.toLocaleTimeString();
+    document.getElementById("reloj").innerText = tiempo;
+}
+
+moverReloj();
+setInterval(moverReloj, 1000);
 </script>
-  setInterval(moverReloj, 1000);
-  moverReloj();
+ 
 </body>
 </html>
+
 
 
 
